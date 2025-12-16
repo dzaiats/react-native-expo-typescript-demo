@@ -118,11 +118,36 @@ The app includes `testID` attributes on all interactive elements for easy testin
 - `tab-events`: Events tab button
 - `tab-scanner`: Scanner tab button
 
-To run tests (once test framework is set up):
+To run tests:
 
 ```bash
+# Run all tests
 npm test
+
+# Run tests in watch mode
+npm run test:watch
 ```
+
+### Test Coverage
+
+The test suite includes:
+
+- **Basket Store Tests** (`tests/basketStore.test.ts`):
+  - Adding items to basket
+  - Incrementing item quantities
+  - Decrementing item quantities
+  - Removing items from basket
+  - Calculating totals and item counts
+  - Clearing basket
+
+- **Events Filtering Tests** (`tests/eventsFiltering.test.ts`):
+  - Filtering events by title
+  - Filtering events by location
+  - Case-insensitive filtering
+  - Sorting by date (newest first)
+  - Sorting by title (alphabetical)
+  - Combined filtering and sorting
+  - Edge cases (empty arrays, missing data, etc.)
 
 ## API Endpoints
 

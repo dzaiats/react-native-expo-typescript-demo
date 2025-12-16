@@ -47,11 +47,13 @@ export const EventsListScreen: React.FC = () => {
     let filtered = events;
 
     // Filter by search query
-    if (searchQuery.trim()) {
+    const trimmedQuery = searchQuery.trim();
+    if (trimmedQuery) {
+      const lowerQuery = trimmedQuery.toLowerCase();
       filtered = filtered.filter(
         (event) =>
-          event.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          event.location?.toLowerCase().includes(searchQuery.toLowerCase())
+          event.title?.toLowerCase().includes(lowerQuery) ||
+          event.location?.toLowerCase().includes(lowerQuery)
       );
     }
 
