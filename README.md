@@ -121,11 +121,21 @@ The app includes `testID` attributes on all interactive elements for easy testin
 To run tests:
 
 ```bash
-# Run all tests
+# Run all unit tests
 npm test
 
 # Run tests in watch mode
 npm run test:watch
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run E2E tests with Detox (requires development build)
+npm run test:e2e
+
+# Run E2E tests for specific platform
+npm run test:e2e:ios
+npm run test:e2e:android
 ```
 
 ### Test Coverage
@@ -148,6 +158,67 @@ The test suite includes:
   - Sorting by title (alphabetical)
   - Combined filtering and sorting
   - Edge cases (empty arrays, missing data, etc.)
+
+- **E2E Tests with Detox** (`tests/e2e/eventNavigation.e2e.ts`):
+  - Opening an event from the events list
+  - Verifying correct event details are displayed
+  - Verifying event title matches
+  - Verifying ticket tree is loaded
+  - Navigation back to events list
+
+### E2E Testing Setup
+
+**Note**: Detox requires a development build (not Expo Go). You need to:
+
+1. **Create a development build**:
+   ```bash
+   npx expo prebuild
+   ```
+
+2. **Build the app** (optional - Detox will build automatically if needed):
+   ```bash
+   # iOS - Build manually if needed
+   npm run test:e2e:build:ios
+   
+   # Or build with Expo
+   npx expo run:ios --no-install --no-bundler
+   ```
+
+3. **Start Metro bundler** (in a separate terminal - REQUIRED):
+   ```bash
+   # Start Metro bundler (keep this running)
+   npm start
+   # Or for production mode:
+   npm run test:e2e:metro
+   ```
+   
+   **Important**: Metro bundler MUST be running on `http://localhost:8081` before starting E2E tests. The app needs to connect to Metro to load the JavaScript bundle.
+
+4. **Run E2E tests** (in another terminal):
+   ```bash
+   # iOS - This will build and test automatically
+   npm run test:e2e:ios
+   
+   # Or if Metro is already running:
+   npm run test:e2e:ios:simple
+   
+   # Android
+   npm run test:e2e:android
+   ```
+   
+   **Note**: 
+   - The `test:e2e:ios` command will automatically build the app if the binary is not found, then run the E2E tests.
+   - **Always start Metro bundler first** in a separate terminal before running E2E tests.
+   - The app will automatically connect to Metro bundler running on `http://localhost:8081`.
+
+### Test Coverage
+
+The project includes code coverage reporting. Run:
+```bash
+npm run test:coverage
+```
+
+Coverage thresholds are set at 70% for branches, functions, lines, and statements.
 
 ## API Endpoints
 

@@ -124,6 +124,7 @@ export const EventsListScreen: React.FC = () => {
   return (
     <View
       testID="events-list-screen"
+      accessible={true}
       style={[styles.container, { backgroundColor: theme.colors.background }]}
     >
       <View

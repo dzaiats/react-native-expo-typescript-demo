@@ -95,6 +95,7 @@ export const EventDetailsScreen: React.FC = () => {
     return (
         <View
             testID="event-details-screen"
+            accessible={true}
             style={[styles.container, {backgroundColor: theme.colors.background}]}
         >
             <ScrollView

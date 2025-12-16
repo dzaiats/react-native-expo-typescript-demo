@@ -47,7 +47,11 @@ const EventsStack = () => {
       <Stack.Screen
         name="EventDetails"
         component={EventDetailsScreen}
-        options={{ title: 'Event Details' }}
+        options={{
+          title: 'Event Details',
+          headerBackTitleVisible: false,
+          headerBackAccessibilityLabel: 'Back to Events',
+        }}
       />
     </Stack.Navigator>
   );
