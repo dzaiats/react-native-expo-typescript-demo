@@ -160,7 +160,7 @@ The test suite includes:
   - Edge cases (empty arrays, missing data, etc.)
 
 - **E2E Tests with Detox** (`tests/e2e/eventNavigation.e2e.ts`):
-  - Opening an event from the events list
+  - Searching and opening an event from the events list
   - Verifying correct event details are displayed
   - Verifying event title matches
   - Verifying ticket tree is loaded
@@ -170,7 +170,7 @@ The test suite includes:
 
 **Note**: Detox requires a development build (not Expo Go). You need to:
 
-1. **Create a development build**:
+1. **Create a development build**: (already done and pushed)
    ```bash
    npx expo prebuild
    ```
@@ -179,9 +179,6 @@ The test suite includes:
    ```bash
    # iOS - Build manually if needed
    npm run test:e2e:build:ios
-   
-   # Or build with Expo
-   npx expo run:ios --no-install --no-bundler
    ```
 
 3. **Start Metro bundler** (in a separate terminal - REQUIRED):
@@ -289,7 +286,4 @@ expo start -c
 - Dark mode is automatically detected from system settings
 - Basket state persists across app restarts
 
-## License
-
-This project is created as part of an assignment.
 
