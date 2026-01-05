@@ -1,4 +1,4 @@
-# Celebratix Assignment - Mobile App
+# Demo Mobile App
 
 A React Native mobile application built with Expo, TypeScript, and Zustand for managing events and ticket purchases.
 
